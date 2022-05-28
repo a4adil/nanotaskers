@@ -524,7 +524,7 @@
                                 <span class="text--danger"></span>
                             </label><br>
                             <div class="input-group">
-                                <input type="number" min="1000" name="speed" class="form-control form--control" value="{{ $job->speed }}">
+                                <input type="number" name="speed" class="form-control form--control" value="{{ $job->speed }}">
                             </div>
                         </div>
                         
@@ -836,6 +836,7 @@
                         console.log(total_budget);
                         $("#workerwillearn").val(cat_price);
                         $("#total_budget").val(total_budget);
+                        $("input[name='speed']").val(speed);
                         
                         
                     }
