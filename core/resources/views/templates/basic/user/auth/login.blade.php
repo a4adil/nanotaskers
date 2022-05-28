@@ -28,7 +28,7 @@
                     <input id="password" type="password" name="password" class="form--control" required>
                 </div>
                 <div class="form--group">
-                    @php echo loadReCaptcha() @endphp
+                    {{-- @php echo loadReCaptcha() @endphp --}}
                 </div>
                 @include($activeTemplate.'partials.custom_captcha')
                 <div class="row gx-0">

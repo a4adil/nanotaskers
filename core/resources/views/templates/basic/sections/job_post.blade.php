@@ -1,7 +1,7 @@
 @php
     $data = getContent('job_post.content',true);
     
-     if ($country_code != "")
+     if (!empty($country_code))
         $jobs      = App\Models\JobPost::select('*')->leftJoin('continent_countries', 'job_posts.id', '=', 'continent_countries.post_id')->where(['continent_countries.country' => session('country_code')])->latest('job_posts.created_at')->take(8)->get();
     else
         $jobs      = App\Models\JobPost::where('status', 1)->latest()->take(8)->get();

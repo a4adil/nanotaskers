@@ -58,13 +58,15 @@ class JobPostController extends Controller {
     }
 
     public function store(Request $request) {
-
+        dd($request->all());
         $request->validate([
             
             'quantity'    => 'required|integer|gt:0',
             'rate'        => 'required|numeric|gt:0',
             'title'       => 'required|string|max:255',
             'attachment'  => ['image', new FileTypeValidate(['jpeg', 'jpg', 'png'])],
+            'description' => 'required',
+            'speed'       => 'required'  
 
         ]);
 
@@ -205,12 +207,14 @@ class JobPostController extends Controller {
     }
 
     public function update(Request $request, $id) {
+
         $request->validate([
             
             'quantity'    => 'required|integer|gt:0',
             'rate'        => 'required|numeric|gt:0',
             'title'       => 'required|string|max:255',
-            // 'description' => 'required',
+            'description' => 'required',
+            'speed' => 'required',
             
         ]);
         $general = GeneralSetting::first();
@@ -311,7 +315,7 @@ class JobPostController extends Controller {
         $job->continent       = $request->continent;
         $job->promotion       = $request->promotion;
         $job->total_budget       = $request->total_budget;
-        
+        // dd([$request->speed, $job]);
         $job->save();
 
         $res=ContinentCountries::where('post_id',$id)->delete();
