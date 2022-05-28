@@ -224,9 +224,20 @@
                             <label for="country" class="form--label">@lang('Job Description')
                                 <span class="text--danger">*</span>
                             </label>
-                            <div class="input-group">
-                                <textarea class="form-control form--control nicEdit" name="description"></textarea>
+                            <div id="inputFormRow">
+                                <div class="input-group mb-3">
+                                    <input type="text" style="max-width: 85%" name="description[]" class="form-control m-input" autocomplete="off">
+                                    <div class="input-group-append">
+                                        <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                                    </div>
+                                </div>
                             </div>
+                
+                            <div id="newRow"></div>
+                            <button id="addRow" type="button" class="btn btn-info">Add Row</button>
+                            {{-- <div class="input-group">
+                                <textarea class="form-control form--control nicEdit" name="description"></textarea>
+                            </div> --}}
                         </div>
                 	</div>
                 	
@@ -886,6 +897,24 @@ $(document).ready(function(){
         e.preventDefault();
         $(this).parent('div').remove(); //Remove field html
         x--; //Decrement field counter
+    });
+    // add row
+    $("#addRow").click(function () {
+        var html = '';
+        html += '<div id="inputFormRow">';
+        html += '<div class="input-group mb-3">';
+        html += '<input style="max-width:85%" type="text" name="description[]" class="form-control m-input" autocomplete="off">';
+        html += '<div class="input-group-append">';
+        html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
+        html += '</div>';
+        html += '</div>';
+
+        $('#newRow').append(html);
+    });
+
+    // remove row
+    $(document).on('click', '#removeRow', function () {
+        $(this).closest('#inputFormRow').remove();
     });
 });
 </script>

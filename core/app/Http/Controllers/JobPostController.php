@@ -58,7 +58,6 @@ class JobPostController extends Controller {
     }
 
     public function store(Request $request) {
-        dd($request->all());
         $request->validate([
             
             'quantity'    => 'required|integer|gt:0',
@@ -124,7 +123,7 @@ class JobPostController extends Controller {
         $job->total             = $totalBudget;
         $job->due_amount        = $totalBudget;
         $job->title             = $request->title;
-        $job->description       = $request->description;
+        $job->description       = json_encode($request->description);
         $job->status            = $general->approve_job ?? 0;
         
         $job->additional_note       = $request->additional_note;
@@ -288,7 +287,7 @@ class JobPostController extends Controller {
         $job->total             = $totalBudget;
         $job->due_amount        = $totalBudget;
         $job->title             = $request->title;
-        $job->description       = $request->description;
+        $job->description       = json_encode($request->description);
         $job->status            = $general->approve_job ?? 0;
         $job->step1       = $request->step1;
         $job->step2       = $request->step2;

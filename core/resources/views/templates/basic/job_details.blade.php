@@ -10,7 +10,15 @@
                     <div class="job__details__widget">
                         <h4 class="job__details__widget-title">@lang('Job Description : ')</h4>
                         @php
-                            echo $job->description;
+                            if(!empty($job->description)){
+                                $ol = "<ol>";
+                                    foreach (json_decode($job->description) as $value) {
+                                        $ol .= "<li>" . $value.'</li>';
+                                        
+                                    }
+                                $ol .= "</ol>";
+                                echo $ol;
+                            }
                         @endphp
                     </div>
                     @if ($job->user_id != Auth::id())
