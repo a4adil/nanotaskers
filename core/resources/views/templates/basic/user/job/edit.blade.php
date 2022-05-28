@@ -274,9 +274,38 @@
                             <label for="country" class="form--label">@lang('Job Description')
                                 <span class="text--danger">*</span>
                             </label>
-                            <div class="input-group">
-                                <textarea class="form-control form--control nicEdit" name="description">{{ $job->description }}</textarea>
+
+                                @php
+                                    if(!empty(($job->description))){
+                                        $description = json_decode($job->description, true);
+                                        if(is_array($description)){
+                                        
+                                            foreach ($description as $value) {
+                                                $ul = '<div id="inputFormRow">
+                                                        <div class="input-group mb-3">';
+                                                $ul .= '<input value="'.(string)$value.'" type="text" style="max-width: 85%" name="description[]" class="form-control m-input" autocomplete="off">';
+                                                $ul .= ' <div class="input-group-append">
+                                                                <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                                                            </div>
+                                                        </div>';
+                                                echo $ul;
+                                            }
+                                        }
+                                    }
+                                    
+                                @endphp
+
+                            <div id="inputFormRow">
+                                <div class="input-group mb-3">
+                                    <input type="text" style="max-width: 85%" name="description[]" class="form-control m-input" autocomplete="off">
+                                    <div class="input-group-append">
+                                        <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                                    </div>
+                                </div>
                             </div>
+                
+                            <div id="newRow"></div>
+                            <button id="addRow" type="button" class="btn btn-info">Add Row</button>
                         </div>
                 	</div>
                 	
@@ -869,6 +898,24 @@
             $(this).parent('div').remove(); //Remove field html
             x--; //Decrement field counter
         });
+         // add row
+    $("#addRow").click(function () {
+        var html = '';
+        html += '<div id="inputFormRow">';
+        html += '<div class="input-group mb-3">';
+        html += '<input style="max-width: 85%" type="text" name="description[]" class="form-control m-input" autocomplete="off">';
+        html += '<div class="input-group-append">';
+        html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
+        html += '</div>';
+        html += '</div>';
+
+        $('#newRow').append(html);
+    });
+
+    // remove row
+    $(document).on('click', '#removeRow', function () {
+        $(this).closest('#inputFormRow').remove();
+    });
     });
 </script>
     
