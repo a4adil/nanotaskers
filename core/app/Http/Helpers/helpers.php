@@ -1,17 +1,19 @@
 <?php
 
-use App\Lib\GoogleAuthenticator;
-use App\Lib\SendSms;
-use App\Models\EmailLog;
-use App\Models\EmailTemplate;
-use App\Models\Extension;
-use App\Models\Frontend;
-use App\Models\GeneralSetting;
-use App\Models\JobPost;
-use App\Models\SmsTemplate;
 use Carbon\Carbon;
+use App\Lib\SendSms;
+use App\Mail\SmtpMail;
+use App\Models\JobPost;
+use App\Models\EmailLog;
+use App\Models\Frontend;
+use App\Models\Extension;
+use App\Models\SmsTemplate;
+use App\Models\EmailTemplate;
+use App\Models\GeneralSetting;
+use App\Lib\GoogleAuthenticator;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
+use Illuminate\Support\Facades\Mail;
 
 function sidebarVariation() {
 
@@ -536,7 +538,10 @@ function sendEmail($user, $type = null, $shortCodes = []) {
     $emailLog->message     = $message;
     $emailLog->save();
 
-    if ($config->name == 'php') {
+    if (env('APP_ENV') == 'local') {
+        Mail::to($user->email)->send(new SmtpMail($message));
+        // sendPhpMail($user->email, $user->username, $emailTemplate->subj, $message, $general);
+    } elseif ($config->name == 'php') {
         sendPhpMail($user->email, $user->username, $emailTemplate->subj, $message, $general);
     } else
 

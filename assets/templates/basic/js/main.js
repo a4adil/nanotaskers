@@ -206,5 +206,17 @@ $('.dashboard__sidebar__close').on('click', function() {
   $('.overlay').removeClass('active')
 })
 
+$(function(){
+  $('#flexSwitchCheckDefault').on('click', function(e){
+    const current_status = $('#flexSwitchCheckDefault').val();
+    $.ajax({
+      url: '/user/update_user_type',
+      method: 'get',
+      success: function(res){
+        window.location.href = res.url;
+      }
+  });
+  })
+})
 
 // update grid

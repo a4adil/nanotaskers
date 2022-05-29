@@ -13,6 +13,19 @@
                     </ul>
                 </div>
                 <div class="header__top__wrapper-right d-flex align-items-center">
+                    <!-- Default switch -->
+                    @auth
+                    <div class="form-check form-switch">
+                        @if (Auth::user()->user_type == 1)
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked />
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Swtich to Employee</label>
+                        @endif
+                        @if (Auth::user()->user_type == 2)
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Swtich to Employer</label>
+                        @endif
+                    </div>
+                    @endauth
                     <ul class="social-links m-0 me-3">
                         @foreach ($socialIcons as $data)
                             <li>
@@ -26,6 +39,12 @@
                             </option>
                         @endforeach
                     </select>
+                    @if (Auth::check())
+                    <a href="/logout">Logout</a>
+                    @else
+                        <a href="/login">Login</a>
+                    @endif
+                    
                 </div>
             </div>
         </div>
@@ -69,9 +88,16 @@
                                 href="{{ route('user.register') }}">@lang('Register')
                             </a>
                         @else
+                            @if(Auth::user()->user_type == 2)
                             <a class="btn btn--base btn--round btn--md ms-2 text-white"
                                 href="{{ route('all.jobs') }}">@lang('Find Jobs')
                             </a>
+                            @endif
+                            @if(Auth::user()->user_type == 1)
+                            <a class="btn btn--base btn--round btn--md ms-2 text-white"
+                                href="{{ route('user.job.create') }}">@lang('Post Jobs')
+                            </a>
+                            @endif
                         @endguest
 
                     </li>

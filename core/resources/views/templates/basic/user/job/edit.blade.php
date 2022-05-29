@@ -309,47 +309,6 @@
                         </div>
                 	</div>
                 	
-                	<!--<h3>What specific tasks need to be completed</h3>-->
-                	<!--<div class="row">-->
-                	<!--    @php $b = 1; @endphp-->
-                	<!--    @foreach ($PostsSteps as $step)-->
-                	<!--    <div class="col-md-6">-->
-                        
-                 <!--           <label for="country" class="form--label">@lang('Step '){{$b}}-->
-                 <!--               <span class="text--danger"></span>-->
-                 <!--           </label><br>-->
-                 <!--           <div class="input-group">-->
-                 <!--               <input type="text" name="step[]" class="form-control form--control" value="{{ $step->step }}">-->
-                 <!--           </div>-->
-                 <!--       </div>-->
-                 <!--       @php $b++; @endphp-->
-                 <!--       @endforeach-->
-                        
-                	<!--</div>-->
-                	
-                	<!--<h3>Variables Values. Max 1000 lines. (optional step: only required if job steps contain variables) </h3>-->
-                	<!--<div class="row">-->
-                	<!--    <div class="col-md-6">-->
-                        
-                 <!--           <label for="country" class="form--label">@lang('Description')-->
-                 <!--               <span class="text--danger"></span>-->
-                 <!--           </label><br>-->
-                 <!--           <div class="input-group">-->
-                 <!--               <input type="text" name="description" class="form-control form--control" value="{{ old('description') }}">-->
-                 <!--           </div>-->
-                 <!--       </div>-->
-                        
-                 <!--       <div class="col-md-6">-->
-                        
-                 <!--           <label for="country" class="form--label">@lang('Additional Notes (optional)')-->
-                 <!--               <span class="text--danger"></span>-->
-                 <!--           </label><br>-->
-                 <!--           <div class="input-group">-->
-                 <!--               <input type="text" name="additional_note" class="form-control form--control" value="{{ old('additional_note') }}">-->
-                 <!--           </div>-->
-                 <!--       </div>-->
-                        
-                	<!--</div>-->
                 	
                 	<h3>Required proof the job was completed </h3>
                 	<div class="row">
@@ -553,7 +512,7 @@
                                 <span class="text--danger"></span>
                             </label><br>
                             <div class="input-group">
-                                <input type="number" name="speed" class="form-control form--control" value="{{ $job->speed }}">
+                                <input type="text" name="speed" class="form-control form--control" value="{{ $job->speed }}" readonly>
                             </div>
                         </div>
                         
@@ -866,7 +825,7 @@
                         $("#workerwillearn").val(cat_price);
                         $("#total_budget").val(total_budget);
                         $("input[name='speed']").val(speed);
-                        
+                        console.log(speed, 'spped');
                         
                     }
                 });

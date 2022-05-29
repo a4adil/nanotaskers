@@ -449,4 +449,20 @@ class UserController extends Controller {
         return view($this->activeTemplate . 'user.transaction', compact('pageTitle', 'emptyMessage', 'allTransaction'));
     }
 
+    public function update_user_type(Request $request)
+    {
+       $user = $request->user()->id;
+       $type = $request->user()->user_type;
+       $url = route('user.job.history');
+       if($type == 1){
+        User::where('id', $user)
+        ->update(['user_type' => 2]);
+        $url = route('user.job.apply');
+       }else{
+        User::where('id', $user)
+        ->update(['user_type' => 1]);
+       }
+       return response()->json(['msg' => 'type changed', 'url' => $url], 200);
+    }
+
 }

@@ -2,7 +2,7 @@
 @section('app')
 
     @include($activeTemplate.'partials.header')
-    @include($activeTemplate .'partials.breadcrumb')
+    {{-- @include($activeTemplate .'partials.breadcrumb') --}}
 
     <section class="dashboard-section padding-top padding-bottom">
         <div class="container">

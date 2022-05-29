@@ -328,8 +328,8 @@ Route::name('user.')->prefix('user')->group(function () {
         Route::post('verify-email', 'AuthorizationController@emailVerification')->name('verify.email');
         Route::post('verify-sms', 'AuthorizationController@smsVerification')->name('verify.sms');
         Route::post('verify-g2fa', 'AuthorizationController@g2faVerification')->name('go2fa.verify');
-
         Route::middleware(['checkStatus'])->group(function () {
+            Route::get('/update_user_type', 'UserController@update_user_type')->name('update_user_type');
             Route::get('dashboard', 'UserController@home')->name('home');
 
             Route::get('profile-setting', 'UserController@profile')->name('profile.setting');

@@ -125,9 +125,9 @@
                     </div>
                 </div>
                 
-                <div class="form--group">
+                {{-- <div class="form--group">
                     @php echo loadReCaptcha() @endphp
-                </div>
+                </div> --}}
                 @include($activeTemplate.'partials.custom_captcha')
                 @if ($general->agree)
                     <div class="col-12">

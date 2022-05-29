@@ -241,66 +241,6 @@
                         </div>
                 	</div>
                 	
-                	<!--<h3>What specific tasks need to be completed</h3>-->
-                	<!--<div class="row">-->
-                	<!--    <div class="col-md-6">-->
-                        
-                 <!--           <label for="country" class="form--label">@lang('Step 1')-->
-                 <!--               <span class="text--danger"></span>-->
-                 <!--           </label><br>-->
-                 <!--           <div class="input-group">-->
-                 <!--               <input type="text" name="step[]" class="form-control form--control" value="{{ old('step1') }}">-->
-                 <!--           </div>-->
-                 <!--       </div>-->
-                        
-                 <!--       <div class="col-md-6">-->
-                        
-                 <!--           <label for="country" class="form--label">@lang('Step 2')-->
-                 <!--               <span class="text--danger"></span>-->
-                 <!--           </label><br>-->
-                 <!--           <div class="input-group">-->
-                 <!--               <input type="text" name="step[]" class="form-control form--control" value="{{ old('step2') }}">-->
-                 <!--           </div>-->
-                 <!--       </div>-->
-                        
-                 <!--       <div class="col-md-6 field_wrapper">-->
-                 <!--           <div>-->
-                 <!--           <label for="country" class="form--label">@lang('Step 3')-->
-                 <!--               <span class="text--danger"></span>-->
-                 <!--           </label><br>-->
-                 <!--           <div class="input-group">-->
-                 <!--               <input type="text" name="step[]" class="form-control form--control" value="{{ old('step3') }}">-->
-                 <!--           </div>-->
-                 <!--           <a href="javascript:void(0);" class="add_button" title="Add field"><img src="add-icon.png"/></a>-->
-
-                 <!--           </div>-->
-                 <!--       </div>-->
-                	<!--</div>-->
-                	
-                	<!--<h3>Variables Values. Max 1000 lines. (optional step: only required if job steps contain variables) </h3>-->
-                	<!--<div class="row">-->
-                	<!--    <div class="col-md-6">-->
-                        
-                 <!--           <label for="country" class="form--label">@lang('Description')-->
-                 <!--               <span class="text--danger"></span>-->
-                 <!--           </label><br>-->
-                 <!--           <div class="input-group">-->
-                 <!--               <input type="text" name="description" class="form-control form--control" value="{{ old('description') }}">-->
-                 <!--           </div>-->
-                 <!--       </div>-->
-                        
-                 <!--       <div class="col-md-6">-->
-                        
-                 <!--           <label for="country" class="form--label">@lang('Additional Notes (optional)')-->
-                 <!--               <span class="text--danger"></span>-->
-                 <!--           </label><br>-->
-                 <!--           <div class="input-group">-->
-                 <!--               <input type="text" name="additional_note" class="form-control form--control" value="{{ old('additional_note') }}">-->
-                 <!--           </div>-->
-                 <!--       </div>-->
-                        
-                	<!--</div>-->
-                	
                 	<h3>Required proof the job was completed </h3>
                 	<div class="row">
                 	    <div class="col-md-6">

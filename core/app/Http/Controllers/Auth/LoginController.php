@@ -180,10 +180,10 @@ class LoginController extends Controller
 // exit;
         if($user->user_type == 1)
         {
-            return redirect('https://nanotaskers.com/user/job/finished');    
+            return redirect('/user/job/history');    
         }else if($user->user_type == 2)
         {
-            return redirect('https://nanotaskers.com/user/job/create');    
+            return redirect('/user/job/apply');    
         }
         
     }

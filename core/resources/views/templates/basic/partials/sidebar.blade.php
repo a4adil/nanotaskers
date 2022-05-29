@@ -18,17 +18,19 @@
             <li class="has__submenu">
                 <a href="#0">@lang('Job')</a>
                 <ul class="sidebar__submenu">
-                    @if(Auth::user()->user_type == 2)
+                    @if(Auth::user()->user_type == 1)
                     <li><a href="{{ route('user.job.create') }}" class="{{ menuActive('user.job.create') }}">@lang('Create Job')</a></li>
                     <li><a href="{{ route('user.job.history') }}" class="{{ menuActive('user.job.history') }}">@lang('Job History')</a></li>
                     @endif
+                    @if(Auth::user()->user_type == 2)
                     <li><a href="{{ route('user.job.apply') }}" class="{{ menuActive('user.job.apply') }}">@lang('Applied Jobs')</a></li>
                     <li><a href="{{ route('user.job.finished') }}" class="{{ menuActive('user.job.finished') }}">@lang('Finished Jobs')</a></li>
+                    @endif
                 </ul>
             </li>
             {{-- <li><a href="{{ route('user.finished.job') }}" class="{{ menuActive('user.finished.job') }}">@lang('My Finished Jobs')</a></li> --}}
             
-            @if(Auth::user()->user_type == 2)
+            @if(Auth::user()->user_type == 1)
             <li><a href="#0">@lang('Deposit')</a>
                 <ul class="sidebar__submenu">
                     <li><a href="{{ route('user.deposit') }}" class="{{ menuActive('user.deposit') }}">@lang('Deposit Now')</a></li>
@@ -36,12 +38,14 @@
                 </ul>
             </li>
             @endif
+            @if(Auth::user()->user_type == 2)
             <li><a href="#0">@lang('Withdraw')</a>
                 <ul class="sidebar__submenu">
                     <li><a href="{{ route('user.withdraw') }}" class="{{ menuActive('user.withdraw') }}">@lang('Withdraw Now')</a></li>
                     <li><a href="{{ route('user.withdraw.history') }}" class="{{ menuActive('user.withdraw.history') }}">@lang('Withdraw History')</a></li>
                 </ul>
             </li>
+            @endif
             <li>
                 <a href="{{ route('user.transaction') }}" class="{{ menuActive('user.transaction') }}">
                     @lang('Transaction')
